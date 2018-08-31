@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /static/.sass-cache
+/.sass-cache
 
 # production
 
