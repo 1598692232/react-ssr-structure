@@ -2,8 +2,6 @@ import Layout from '../components/Layout';
 import Router from 'next/router';
 import Link from 'next/link';
 
-
-
 const PostLink = (props) => {
   Router.onRouteChangeStart = url => {
     console.log('App is changing to: ', url)

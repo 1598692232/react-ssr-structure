@@ -1,9 +1,16 @@
-import Layout from '../components/Layout'
+import Layout from '../components/Layout';
+import { withRouter } from 'next/router';
 
-export default (props) => {
-  return (
-    <Layout>
-      <h1>{props.url.query.id}</h1>
-    </Layout>
-  )
+class PostPage extends React.Component {
+  render() {
+    const {router} = this.props
+    console.log(router)
+    return (
+      <Layout>
+        <h1>{router.query.id}</h1>
+      </Layout>
+    )
+  }
 }
+
+export default withRouter(PostPage);
