@@ -11,17 +11,22 @@ app.prepare().then(() => {
 
 
   routerConfig.forEach((item, k) => {
-    server.get(`${item.as}:${item.query}`, (req, res) => {
-      const actualPage = item.href;
-      let queryParams = {};
-      queryParams[item.query] = req.params[item.query];
-      app.render(req, res, actualPage, queryParams)
-    });
+    
+    if (!!item.query) {
+      server.get(`${item.as}:${item.query}`, (req, res) => {
+        const actualPage = item.href;
+        let queryParams = {};
+        queryParams[item.query] = req.params[item.query];
+        app.render(req, res, actualPage, queryParams);
+      });
+    } else {
+      server.get(`${item.as}`, (req, res) => {
+        const actualPage = item.href;
+        app.render(req, res, actualPage);
+      });
+    }
   });
 
-  
-
- 
 
   server.get('*', (req, res) => {
     return handle(req, res)

@@ -13,6 +13,5 @@ module.exports = [
     {
         'as': '/home/',
         'href': '/index',
-        'query': 'id'
     },
 ]
