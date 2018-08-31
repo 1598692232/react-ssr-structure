@@ -9,9 +9,7 @@ console.log(routerConfig,'routerConfig')
 app.prepare().then(() => {
   const server = express();
 
-
   routerConfig.forEach((item, k) => {
-    
     if (!!item.query) {
       server.get(`${item.as}:${item.query}`, (req, res) => {
         const actualPage = item.href;
